@@ -45,5 +45,17 @@ class TesteQuestao01(TestCase):
         self.assertEqual({argenina}, uruguai.vizinhos_comuns(brasil))
         self.assertEqual(set(), brasil.vizinhos_comuns(eua))
 
+    def test_retorna_todos_os_paises(self):
+        uruguai = Pais("URUGUAI", 2123132, 5989898.3)
+        uruguai.clear()
+        uruguai = Pais("URUGUAI", 2123132, 5989898.3)
+        brasil = Pais("BRASIL", 2132132, 34.2)
+        argenina = Pais("ARGENINA", 9382938, 1298918.9823)
+        eua = Pais("EUA", 98298, 21322.2121)
+
+
+        self.assertEqual(argenina, eua.todos_paises()[0])
+        self.assertEqual(uruguai, eua.todos_paises()[-1])
+
 
     

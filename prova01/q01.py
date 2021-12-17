@@ -4,7 +4,7 @@ class NotEditable(Exception):
     ...
 
 class Pais:
-    todos_paises = set()
+    __todos_paises = set()
 
     def __init__(self, name, population: int, dimension: float):
         self.__name = name
@@ -13,7 +13,7 @@ class Pais:
         self.__code = uuid()
         self.__fronteira = set()
 
-        Pais.todos_paises.add(self)
+        Pais.__todos_paises.add(self)
 
     @property
     def name(self):
@@ -61,6 +61,8 @@ class Pais:
     def __hash__(self) -> int:
         return hash(self.code)
 
+    object
+
     def __repr__(self):
         return f"<Pais (nome: {self.name}, dimension: {self.dimension})>"
 
@@ -86,4 +88,13 @@ class Pais:
         # import ipdb; ipdb.set_trace()
         assert isinstance(other, Pais)
         return self.fronteira.intersection(other.fronteira)
+
+    def todos_paises(self):
+        todos = Pais.__todos_paises
+        # import ipdb; ipdb.set_trace()
+
+        return sorted(todos, key=lambda pais: pais.name, reverse=False)
+
+    def clear(self):
+        Pais.__todos_paises = set()
 
