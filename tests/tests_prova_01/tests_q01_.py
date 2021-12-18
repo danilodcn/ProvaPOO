@@ -7,13 +7,13 @@ class TesteQuestao01(TestCase):
         from prova01.q01 import Pais
         
         pais = Pais("A", 2321, 23)
-        self.assertEqual(pais.name, "A")
-        self.assertEqual(pais.dimension, 23)
+        self.assertEqual(pais.nome, "A")
+        self.assertEqual(pais.dimensao, 23)
 
     def test_A_erro_ao_tentar_editar_o_código_do_pais(self):
         pais = Pais("Brasil", 2891829, 25898989)
         with self.assertRaises(NotEditable):
-            pais.code = 232
+            pais.codigo = 232
 
     def test_C_verificar_se_dois_paises_sao_iguais(self):
         brasil = Pais("Brasil", 433233, 2019029102.039)

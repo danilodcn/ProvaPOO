@@ -6,45 +6,45 @@ class NotEditable(Exception):
 class Pais:
     __todos_paises = set()
 
-    def __init__(self, name, population: int, dimension: float):
-        self.__name = name
-        self.__dimension = dimension
-        self.__population = population
-        self.__code = uuid()
+    def __init__(self, nome, populacao: int, dimensao: float):
+        self.__nome = nome
+        self.__dimensao = dimensao
+        self.__population = populacao
+        self.__codigo = uuid()
         self.__fronteira = set()
 
         Pais.__todos_paises.add(self)
 
     @property
-    def name(self):
-        return self.__name
+    def nome(self):
+        return self.__nome
     
-    @name.setter
-    def name(self, name: str):
-        self.__name = name
+    @nome.setter
+    def nome(self, nome: str):
+        self.__name = nome
     
     @property
-    def population(self):
+    def populacao(self):
         return self.__population
     
-    @population.setter
-    def population(self, population: int):
-        self.__population = population
+    @populacao.setter
+    def populacao(self, populacao: int):
+        self.__population = populacao
 
     @property
-    def dimension(self):
-        return self.__dimension
+    def dimensao(self):
+        return self.__dimensao
     
-    @dimension.setter
-    def dimension(self, dimension: float):
-        dimension = dimension
+    @dimensao.setter
+    def dimensao(self, dimensao: float):
+        dimensao = dimensao
 
     @property
-    def code(self):
-        return self.__code
+    def codigo(self):
+        return self.__codigo
     
-    @code.setter
-    def code(self, code: float):
+    @codigo.setter
+    def codigo(self, codigo: float):
         raise NotEditable("Não é possível alterar o código do país")
 
     @property
@@ -56,15 +56,15 @@ class Pais:
         raise NotEditable("Não é possível alterar o objeto")
 
     def __eq__(self, other):
-        return self.__code == other.code
+        return self.codigo == other.codigo
 
     def __hash__(self) -> int:
-        return hash(self.code)
+        return hash(self.codigo)
 
     object
 
     def __repr__(self):
-        return f"<Pais (nome: {self.name}, dimension: {self.dimension})>"
+        return f"<Pais (nome: {self.nome}, dimensao: {self.dimensao})>"
 
     def e_limitrofe(self, other):
         # import ipdb; ipdb.set_trace()
@@ -82,7 +82,7 @@ class Pais:
             pais.fronteira.add(self)
 
     def densidade(self):
-        return self.population / self.dimension
+        return self.populacao / self.dimensao
 
     def vizinhos_comuns(self, other):
         # import ipdb; ipdb.set_trace()
@@ -93,7 +93,7 @@ class Pais:
         todos = Pais.__todos_paises
         # import ipdb; ipdb.set_trace()
 
-        return sorted(todos, key=lambda pais: pais.name, reverse=False)
+        return sorted(todos, key=lambda pais: pais.nome, reverse=False)
 
     def clear(self):
         """
