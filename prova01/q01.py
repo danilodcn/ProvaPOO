@@ -9,7 +9,7 @@ class Pais:
     def __init__(self, nome, populacao: int, dimensao: float):
         self.__nome = nome
         self.__dimensao = dimensao
-        self.__population = populacao
+        self.__populacao = populacao
         self.__codigo = uuid()
         self.__fronteira = set()
 
@@ -25,7 +25,7 @@ class Pais:
     
     @property
     def populacao(self):
-        return self.__population
+        return self.__populacao
     
     @populacao.setter
     def populacao(self, populacao: int):
@@ -61,10 +61,8 @@ class Pais:
     def __hash__(self) -> int:
         return hash(self.codigo)
 
-    object
-
     def __repr__(self):
-        return f"<Pais (nome: {self.nome}, dimensao: {self.dimensao})>"
+        return f"<Pais (nome: {self.nome}, populacao: {self.populacao},dimensao: {self.dimensao})>"
 
     def e_limitrofe(self, other):
         # import ipdb; ipdb.set_trace()
