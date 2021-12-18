@@ -96,5 +96,7 @@ class Pais:
         return sorted(todos, key=lambda pais: pais.name, reverse=False)
 
     def clear(self):
+        """
+        limpa todos os os países criados até então
+        """
         Pais.__todos_paises = set()
-
