@@ -1,3 +1,3 @@
 .PHONY: tests
-tests:
+testes:
 	python -m unittest discover ./tests -v
