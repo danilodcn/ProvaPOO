@@ -47,3 +47,11 @@ Para executar o menu use o comando:
 ```
 python prova01/main.py 
 ```
+
+### Prova 02
+
+Para executar o menu use o comando:
+
+```
+python prova02/main.py 
+```
